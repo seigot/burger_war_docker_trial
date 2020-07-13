@@ -1,5 +1,7 @@
 # burger_war_docker_trial
 
+Ubuntu 18.04 LTS用
+
 # step1. dockerをインストール
 
 [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
