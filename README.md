@@ -1,16 +1,15 @@
 # burger_war_docker_trial
 
-
 # docker run
 
 ```
-docker-compose up -d
+docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:0.01
 ```
 
 # Browser Access
 
 ```
-http://127.0.0.1:8080
+http://127.0.0.1:6081
 ```
 
 # robocon start
@@ -23,9 +22,15 @@ bash scripts/sim_with_judge.sh
 bash scripts/start.sh
 ```
 
+# docker compose
+
+```
+docker-compose up -d
+```
+
 # docker build (if necessary)
 
-xx is a number
+x.xx is container version
 
 ```
 docker build -t robocon-container-trial:x.xx .
