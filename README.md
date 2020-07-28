@@ -1,5 +1,6 @@
 # burger_war_docker_trial
 
+---
 Ubuntu 18.04 LTS用
 
 # step1. dockerをインストール
@@ -42,6 +43,27 @@ bash scripts/sim_with_judge.sh
 cd ~/catkin_make/src/burger_war
 bash scripts/start.sh
 ```
+
+---
+RaspberryPi用(Raspi4 + Raspbian busterで動作検証済)
+
+# step1. dockerをインストール
+
+[Docker comes to Raspberry Pi](https://www.raspberrypi.org/blog/docker-comes-to-raspberry-pi/)
+
+```
+curl -sSL https://get.docker.com | sh
+```
+
+# step2. コンテナ起動
+
+```
+sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:raspi0.1
+```
+
+# step3. ブラウザからコンテナへアクセス
+
+同上
 
 ---
 開発用
