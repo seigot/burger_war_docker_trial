@@ -66,6 +66,25 @@ sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:ra
 同上
 
 ---
+# JetsonNano用(Jetpack4.4で動作検証済)
+
+## step1. dockerをインストール
+
+```
+
+```
+
+## step2. コンテナ起動
+
+```
+sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:jetson-nano0.1
+```
+
+## step3. ブラウザからコンテナへアクセス
+
+同上
+
+---
 開発用
 
 ## docker compose
