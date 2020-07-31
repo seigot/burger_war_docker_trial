@@ -45,6 +45,23 @@ bash scripts/start.sh
 ```
 
 ---
+# Mac用(MacBookPro Corei5環境で動作検証済)
+
+## step1. dockerをインストール
+
+[Macにdockerインストール](https://qiita.com/ama_keshi/items/b4c47a4aca5d48f2661c)
+
+
+## step2. コンテナ起動
+
+```
+sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:0.02
+```
+
+## step3. ブラウザからコンテナへアクセス
+同上
+
+---
 # RaspberryPi用(Raspi4 + Raspbian busterで動作検証済)
 
 ## step1. dockerをインストール
