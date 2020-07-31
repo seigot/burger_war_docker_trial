@@ -2,7 +2,7 @@ version: '2.0'
 
 services:
   myproject:
-     image: stakada3o3/robocon-container-trial:0.01
+     image: stakada3o3/robocon-container-trial:0.02
      container_name: robocon-container-trial
      ports:
       - "6081:80"
