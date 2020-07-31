@@ -19,7 +19,7 @@ sudo apt-get install -y docker-ce docker.io
 ## step2. コンテナ起動
 
 ```
-sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:0.01
+sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:0.02
 ```
 
 ## step3. ブラウザからコンテナへアクセス
