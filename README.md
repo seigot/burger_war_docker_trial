@@ -71,7 +71,7 @@ sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:ra
 ## step1. dockerをインストール
 
 ```
-
+jetpackには最初からdockerがインストールされている。従って追加インストール不要
 ```
 
 ## step2. コンテナ起動
