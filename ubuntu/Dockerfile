@@ -38,14 +38,10 @@ RUN apt-get update ;\
     gnome-terminal \
     emacs25;
 
-# turtlebot3
-RUN apt-get update ;\
-    apt-get install -y \
-    python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential \
-    python-pip \
-    ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations; \
-    pip install requests flask; \
-    apt-get install -y ros-melodic-dwa-local-planner;
+# command
+ADD  common.sh  /
+RUN  chmod +x /common.sh
+RUN  /common.sh
 
 # command
 ADD  start.sh  /
