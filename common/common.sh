@@ -2,7 +2,7 @@
 set -eu
 HOME=/home/ubuntu
 
-func install_package(){
+function install_package(){
     # turtlebot3
     apt-get update
     apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential python-pip ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations
@@ -36,7 +36,7 @@ func install_package(){
     ###--->
 }
 
-func build_package(){
+function build_package(){
 
     source $HOME/.bashrc
     source /opt/ros/melodic/setup.bash
@@ -61,7 +61,7 @@ func build_package(){
     catkin build
 }
 
-func setup_env(){
+function setup_env(){
     echo "source ~/catkin_ws/devel/setup.bash" >> $HOME/.bashrc
     source $HOME/.bashrc
 
