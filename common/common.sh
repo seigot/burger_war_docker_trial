@@ -5,6 +5,7 @@ HOME=/home/ubuntu
 function install_package(){
     # turtlebot3
     sudo apt-get update
+    sudo apt-get install -y apt-utils
     sudo apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential python-pip ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations
     pip install requests flask
     sudo apt-get install -y ros-melodic-dwa-local-planner
