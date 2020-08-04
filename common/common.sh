@@ -2,6 +2,10 @@
 set -eu
 HOME=/home/ubuntu
 
+pushd /tmp/burger_war_docker_trial
+git pull
+popd
+
 function install_package(){
     # turtlebot3
     sudo apt-get update
