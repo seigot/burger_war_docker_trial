@@ -117,3 +117,7 @@ x.xx is container version
 ```
 docker build -t robocon-container-trial:x.xx .
 ```
+
+---
+## ライセンス
+see [LICENSE](./LICENSE)
