@@ -1,7 +1,8 @@
 # burger_war_docker_trial
+Ubuntu 18.04 + ROS melodic環境
 
 ---
-# Ubuntu 18.04 LTS + ROS melodic環境
+# Ubuntu 18.04 LTS用
 
 ## step1. dockerをインストール
 
