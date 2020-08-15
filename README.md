@@ -23,6 +23,13 @@ sudo apt-get install -y docker-ce docker.io
 sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:0.05
 ```
 
+(参考) ros-kinetic環境の場合
+
+```
+sudo docker run -p 6081:80 --shm-size=512m stakada3o3/robocon-container-trial:kinetic
+```
+
+
 ## step3. ブラウザからコンテナへアクセス
 
 ```
