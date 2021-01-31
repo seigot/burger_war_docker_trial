@@ -1,0 +1,94 @@
+commit ac6ee49f82a0075d81b2d476f431e21d1b3074a9
+Author: kyad <53517611+kyad@users.noreply.github.com>
+Date:   Thu Aug 13 19:56:14 2020 +0900
+
+    Enable proxy
+
+diff --git a/ubuntu/ros-melodic-desktop.sh b/ubuntu/ros-melodic-desktop.sh
+index 6a9043f..b526593 100755
+--- a/ubuntu/ros-melodic-desktop.sh
++++ b/ubuntu/ros-melodic-desktop.sh
+@@ -6,18 +6,18 @@ ROS_DISTRO=melodic
+ 
+ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+ 
+-sudo apt install -y curl
++sudo -E apt install -y curl
+ curl -k https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | sudo apt-key add -
+-sudo apt update || echo ""
++sudo -E apt update || echo ""
+ 
+-sudo apt install -y ros-${ROS_DISTRO}-desktop-full python-rosdep
++sudo -E apt install -y ros-${ROS_DISTRO}-desktop-full python-rosdep
+ python --version 2>&1 | grep -q "2.7" || exit 1
+ 
+ ls /etc/ros/rosdep/sources.list.d/20-default.list > /dev/null 2>&1 && sudo rm /etc/ros/rosdep/sources.list.d/20-default.list
+-sudo rosdep init 
++sudo -E rosdep init
+ rosdep update
+ 
+-sudo apt install -y python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools python3-vcstool
++sudo -E apt install -y python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools python3-vcstool
+ 
+ grep -F "source /opt/ros/${ROS_DISTRO}/setup.bash" ~/.bashrc ||
+ echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
+diff --git a/ubuntu/start.sh b/ubuntu/start.sh
+index 871f72b..f1f1804 100644
+--- a/ubuntu/start.sh
++++ b/ubuntu/start.sh
+@@ -6,36 +6,36 @@ source /opt/ros/melodic/setup.bash
+ 
+ function install_package(){
+     # turtlebot3
+-    sudo apt-get update
+-    sudo apt-get install -y apt-utils
+-    sudo apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential python-pip ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations
++    sudo -E apt-get update
++    sudo -E apt-get install -y apt-utils
++    sudo -E apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential python-pip ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations
+     pip install requests flask
+-    sudo apt-get install -y ros-melodic-dwa-local-planner
+-    sudo apt-get install -y ros-melodic-global-planner
++    sudo -E apt-get install -y ros-melodic-dwa-local-planner
++    sudo -E apt-get install -y ros-melodic-global-planner
+ 
+     ###--->
+-    sudo apt-get install -y ros-melodic-dwa-local-planner
+-    sudo apt-get install -y ros-melodic-slam-gmapping
++    sudo -E apt-get install -y ros-melodic-dwa-local-planner
++    sudo -E apt-get install -y ros-melodic-slam-gmapping
+     pip install transitions
+-    sudo apt-get install -y graphviz graphviz-dev
++    sudo -E apt-get install -y graphviz graphviz-dev
+     pip install pygraphviz
+-    #sudo apt-get install -y ros-groovy-executive-smach
++    #sudo -E apt-get install -y ros-groovy-executive-smach
+     #rospack find smach
+-    sudo apt-get install --no-install-recommends -y libarmadillo-dev
++    sudo -E apt-get install --no-install-recommends -y libarmadillo-dev
+     #cd ~/catkin_ws/src
+     
+     ###
+-    sudo apt install -y ros-melodic-dwa-local-planner
+-    sudo apt install -y ros-melodic-jsk-rviz-plugins
+-    sudo apt install -y ros-melodic-smach*
+-    sudo apt install -y libarmadillo-dev #libarmadillo6
++    sudo -E apt install -y ros-melodic-dwa-local-planner
++    sudo -E apt install -y ros-melodic-jsk-rviz-plugins
++    sudo -E apt install -y ros-melodic-smach*
++    sudo -E apt install -y libarmadillo-dev #libarmadillo6
+     
+     ###
+-    sudo apt install -y ros-melodic-libg2o
+-    sudo apt install -y libopencv-dev
+-    sudo apt install -y ros-melodic-costmap-converter
+-    sudo apt install -y libsuitesparse-dev
+-    sudo apt install -y libarmadillo-dev #libarmadillo6
++    sudo -E apt install -y ros-melodic-libg2o
++    sudo -E apt install -y libopencv-dev
++    sudo -E apt install -y ros-melodic-costmap-converter
++    sudo -E apt install -y libsuitesparse-dev
++    sudo -E apt install -y libarmadillo-dev #libarmadillo6
+     ###--->
+ }
+ install_package
