@@ -36,15 +36,37 @@ RUN apt-get update ;\
     lsb-release \
     terminator \
     gnome-terminal \
-    emacs25;
+    emacs25 \
+    git;
 
 # turtlebot3
 RUN apt-get update ;\
     apt-get install -y \
     python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential \
     python-pip \
-    ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations; \
-    pip install requests flask;
+    ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations;
+
+RUN apt-get update ;\
+    apt-get install -y python-pip; \
+    pip install requests flask; \
+    apt install -y \
+    ros-melodic-turtlebot3 \
+    ros-melodic-turtlebot3-msgs \
+    ros-melodic-turtlebot3-simulations \
+    ros-melodic-teleop-twist-keyboard \
+    ros-melodic-amcl \
+    ros-melodic-map-server \
+    ros-melodic-move-base\
+    ros-melodic-urdf \
+    ros-melodic-xacro \
+    ros-melodic-compressed-image-transport \
+    ros-melodic-rqt-image-view \
+    ros-melodic-gmapping \
+    ros-melodic-navigation \
+    ros-melodic-interactive-markers \
+    ros-melodic-hector-gazebo-plugins; \
+    apt install -y ros-melodic-aruco-ros; \
+    apt install -y python-pil python-pil.imagetk;
 
 # command
 ADD  start.sh  /
