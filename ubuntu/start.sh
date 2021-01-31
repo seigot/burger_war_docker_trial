@@ -1,40 +1,42 @@
 #!/bin/bash
 
+# sudo -E オプションをつける理由はproxy環境下でdocker proxy設定を継承するため。
+
 HOME=/home/ubuntu
 source $HOME/.bashrc
 source /opt/ros/melodic/setup.bash
 
 function install_package(){
     # turtlebot3
-    sudo apt-get update
-    sudo apt-get install -y apt-utils
-    sudo apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential python-pip ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations
+    sudo -E apt-get update
+    sudo -E apt-get install -y apt-utils
+    sudo -E apt-get install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential python-pip ros-melodic-turtlebot3 ros-melodic-turtlebot3-msgs ros-melodic-turtlebot3-simulations
     pip install requests flask
 
     # my repository
-    sudo apt-get install ros-melodic-dwa-local-planner
-    sudo apt-get install ros-melodic-global-planner
-    sudo apt install -y libarmadillo-dev libarmadillo8  # necessary to install obstacle_detector
+    sudo -E apt-get install ros-melodic-dwa-local-planner
+    sudo -E apt-get install ros-melodic-global-planner
+    sudo -E apt install -y libarmadillo-dev libarmadillo8  # necessary to install obstacle_detector
 
     # other repository --->
-    sudo apt-get install ros-melodic-dwa-local-planner
-    sudo apt-get install ros-melodic-slam-gmapping
+    sudo -E apt-get install ros-melodic-dwa-local-planner
+    sudo -E apt-get install ros-melodic-slam-gmapping
     pip install transitions
-    sudo apt-get install graphviz graphviz-dev
+    sudo -E apt-get install graphviz graphviz-dev
     pip install graphviz
-    sudo apt install ros-melodic-executive-smach
-    sudo apt-get install --no-install-recommends -y libarmadillo-dev libarmadillo8
+    sudo -E apt install ros-melodic-executive-smach
+    sudo -E apt-get install --no-install-recommends -y libarmadillo-dev libarmadillo8
 
     ###
-    sudo apt install -y ros-melodic-jsk-rviz-plugins
-    sudo apt install -y ros-melodic-smach*
+    sudo -E apt install -y ros-melodic-jsk-rviz-plugins
+    sudo -E apt install -y ros-melodic-smach*
 
     ###
-    sudo apt install -y ros-melodic-libg2o
-    sudo apt install -y libopencv-dev
-    sudo apt install -y ros-melodic-costmap-converter
-    sudo apt install -y libsuitesparse-dev
-    sudo apt install -y libarmadillo-dev libarmadillo8
+    sudo -E apt install -y ros-melodic-libg2o
+    sudo -E apt install -y libopencv-dev
+    sudo -E apt install -y ros-melodic-costmap-converter
+    sudo -E apt install -y libsuitesparse-dev
+    sudo -E apt install -y libarmadillo-dev libarmadillo8
     ### --->
 }
 install_package
